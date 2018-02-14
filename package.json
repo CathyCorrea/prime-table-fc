@@ -4,14 +4,16 @@
   "description": "Prints a multiplication table of the first 10 prime numbers",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha lib/test/",
-    "build": "babel src -d lib"
+    "test": "nyc --reporter=text mocha lib/test/",
+    "build": "babel src -d lib",
+    "start": "node lib/index.js"
   },
   "author": "Cathy Correa",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "mocha": "^5.0.1"
+    "mocha": "^5.0.1",
+    "nyc": "^11.4.1"
   }
 }
