@@ -56,7 +56,8 @@ function buildTableNPrimes(n){
 }
 
 function main(){
-    buildTableNPrimes(10);
+    var primeTable = buildTableNPrimes(10);
+    console.log(primeTable);
 }
 
 main();
