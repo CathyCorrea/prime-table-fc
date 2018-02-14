@@ -29,9 +29,33 @@ function getNprimes(n){
     return primes.slice(0,n);
 }
 
+/**
+ * Brute force building of a multiplication table
+ * @param n number of primes to build multiplication table for
+ * @returns {any[]} multiplication table
+ */
 function buildTableNPrimes(n){
     var primes = getNprimes(n);
-    return;
+    var table = new Array(primes.length);
+    for (let i=0; i<primes.length; i++){
+        table[i] = new Array(primes.length);
+    }
+    table[0] = primes;
+
+    for(let r = 1; r < primes.length; r++){
+        table[r][0] = primes[r];
+        for(let c = 1; c < primes.length; c++){
+            table[r][c] = table[r][0] * table[0][c];
+        }
+    }
+
+    return table;
 }
+
+function main(){
+    buildTableNPrimes(10);
+}
+
+main();
 
 export { getNprimes, buildTableNPrimes };
