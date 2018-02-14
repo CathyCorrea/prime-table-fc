@@ -29,4 +29,9 @@ function getNprimes(n){
     return primes.slice(0,n);
 }
 
-export { getNprimes };
+function buildTableNPrimes(n){
+    var primes = getNprimes(n);
+    return;
+}
+
+export { getNprimes, buildTableNPrimes };
