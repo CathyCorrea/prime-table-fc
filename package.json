@@ -1,0 +1,11 @@
+{
+  "name": "prime-table-fc",
+  "version": "1.0.0",
+  "description": "Prints a multiplication table of the first 10 prime numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cathy Correa",
+  "license": "ISC"
+}
