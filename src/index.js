@@ -26,7 +26,7 @@ function getNprimes(n){
             primes.push(x);
         x += 2;
     }
-    return primes;
+    return primes.slice(0,n);
 }
 
 export { getNprimes };

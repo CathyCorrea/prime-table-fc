@@ -10,5 +10,18 @@ describe('prime-table-fc', function (){
             assert.deepEqual(getNprimes(10), tenPrimes);
         });
 
+        it('should return ' + tenPrimes.slice(0,1) +' when passed 1' , function(){
+            assert.deepEqual(getNprimes(1), tenPrimes.slice(0,1));
+        });
+
+        it('should return ' + tenPrimes.slice(0,2) +' when passed 2' , function(){
+            assert.deepEqual(getNprimes(2), tenPrimes.slice(0,2));
+        });
+
+        it('should return ' + tenPrimes.slice(0,3) +' when passed 3' , function(){
+            assert.deepEqual(getNprimes(3), tenPrimes.slice(0,3));
+        });
+
     });
+
 });
