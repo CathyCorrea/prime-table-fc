@@ -23,6 +23,15 @@ describe('prime-table-fc', function () {
             assert.deepEqual(getNprimes(3), tenPrimes.slice(0,3));
         });
 
+        it('should return [] when passed 0', function () {
+            assert.deepEqual(getNprimes(0), []);
+        });
+
+        var fifteenPrimes = [1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43];
+        it('should return ' + fifteenPrimes + ' when passed 3', function () {
+            assert.deepEqual(getNprimes(15), fifteenPrimes);
+        });
+
     });
 
     describe('#buildTableNPrimes()', function () {
@@ -51,6 +60,10 @@ describe('prime-table-fc', function () {
 
         it('should return 1x1 prime multiplication table when passed 1', function () {
             assert.deepEqual(buildTableNPrimes(1), [[1]]);
+        });
+
+        it('should return [[]] prime multiplication table when passed 0', function () {
+            assert.deepEqual(buildTableNPrimes(0), [[]]);
         });
 
 
