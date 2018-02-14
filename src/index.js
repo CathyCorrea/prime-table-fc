@@ -30,7 +30,8 @@ function getNprimes(n){
 }
 
 /**
- * Brute force building of a multiplication table
+ * Builds an nxn multiplication table of the first n prime numbers
+ * Iterates only through distinct pairs of primes rather than every cell
  * @param n number of primes to build multiplication table for
  * @returns {any[]} multiplication table
  */
@@ -39,13 +40,15 @@ function buildTableNPrimes(n){
     var table = new Array(primes.length);
     for (let i=0; i<primes.length; i++){
         table[i] = new Array(primes.length);
+        table[i][0] = (primes[i]);
     }
     table[0] = primes;
 
     for(let r = 1; r < primes.length; r++){
-        table[r][0] = primes[r];
-        for(let c = 1; c < primes.length; c++){
-            table[r][c] = table[r][0] * table[0][c];
+        for(let c = r; c < primes.length; c++) {
+            let product = primes[r] * primes[c];
+            table[r][c] = product;
+            table[c][r] = product;
         }
     }
 
