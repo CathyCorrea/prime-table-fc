@@ -45,5 +45,14 @@ describe('prime-table-fc', function () {
             assert.deepEqual(buildTableNPrimes(10), tenPrimesTable);
         });
 
+        it('should return 2x2 prime multiplication table when passed 2', function () {
+            assert.deepEqual(buildTableNPrimes(2), [[1,2],[2,4]]);
+        });
+
+        it('should return 1x1 prime multiplication table when passed 1', function () {
+            assert.deepEqual(buildTableNPrimes(1), [[1]]);
+        });
+
+
     });
 });
