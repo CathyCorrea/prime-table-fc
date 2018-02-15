@@ -5,12 +5,12 @@
  * If all of the known primes leave an remainder, candidate is prime and added to the list
  * Repeat until list of primes has a length of n
  *
- * @param n number of primes
+ * @param {number} n number of primes to find
  * @returns {number[]} set of n prime numbers
  */
 
 function getNprimes(n){
-    var primes = [ 1, 2];
+    var primes = [2];
     var x = 3;
     while(primes.length < n){
         var isPrime = true;
@@ -30,19 +30,29 @@ function getNprimes(n){
 }
 
 /**
- * Builds an nxn multiplication table of the first n prime numbers
- * Iterates only through distinct pairs of primes rather than every cell
- * @param n number of primes to build multiplication table for
- * @returns {any[]} multiplication table
+ * Initialize nxn table with the first row and columns being the first n primes
+ * @param {number[]}primes Finite set of primes
+ * @returns {number[][]} Table with allocated nxn space and prime multiplicands
  */
-function buildTableNPrimes(n){
-    var primes = getNprimes(n);
+function initNPrimeTable(primes) {
     var table = new Array(primes.length);
-    for (let i=0; i<primes.length; i++){
+    for (let i = 0; i < primes.length; i++) {
         table[i] = new Array(primes.length);
         table[i][0] = (primes[i]);
     }
     table[0] = primes;
+    return table;
+}
+
+/**
+ * Builds an nxn multiplication table of the first n prime numbers
+ * Iterates only through distinct pairs of primes rather than calculating every cell
+ * @param {number} n number of primes to build multiplication table for
+ * @returns {number[][]} multiplication table of first n primes
+ */
+function buildTableNPrimes(n){
+    var primes = [0].concat(getNprimes(n));  //Corner cell is not part of prime list
+    var table = initNPrimeTable(primes);
 
     for(let r = 1; r < primes.length; r++){
         for(let c = r; c < primes.length; c++) {
@@ -55,6 +65,9 @@ function buildTableNPrimes(n){
     return table;
 }
 
+/**
+ * Print multiplication table of first 10 primes
+ */
 function main(){
     var primeTable = buildTableNPrimes(10);
     console.log(primeTable);
