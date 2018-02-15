@@ -1,3 +1,4 @@
+
 /**
  * <p>Begin with initial set of primes, 2
  * Start evaluating numbers at 3, incrementing by 2 to skip even numbers which are by definition not prime
@@ -82,10 +83,15 @@ function buildTableNPrimes(n){
     return table;
 }
 
+/**
+ * Validate input is a whole number greater than zero
+ * @param n number of primes to generate to be validated
+ * @returns {*}
+ */
 function validateInput(n){
-        if(Number.isNaN(n)) throw new Error("Invalid n: "+n+" is not a number");
-        if(n<=0) throw new Error("Invalid n: "+n+" is not greater than zero");
-        if(!Number.isInteger(n)) throw new Error("Invalid n: "+n+" is not a whole number");
+        if (isNaN(n)) throw new Error("Invalid n: " + n + " is not a number");
+        if (n <= 0) throw new Error("Invalid n: " + n + " is not greater than zero");
+        if (!Number.isInteger(Number(n))) throw new Error("Invalid n: " + n + " is not a whole number");
         return n;
 }
 
@@ -108,4 +114,4 @@ function main(args){
 
 main(process.argv);
 
-export { getNprimes, buildTableNPrimes };
+export { getNprimes, buildTableNPrimes, validateInput };

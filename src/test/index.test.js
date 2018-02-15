@@ -1,5 +1,5 @@
 var assert = require('assert');
-import { getNprimes, buildTableNPrimes } from '../index'
+import { getNprimes, buildTableNPrimes, validateInput } from '../index'
 
 describe('prime-table-fc', function () {
 
@@ -96,6 +96,31 @@ describe('prime-table-fc', function () {
         it('should return [[0]] when passed someString', function () {
             assert.deepEqual(buildTableNPrimes('someString'), [[0]]);
         });
+
+    });
+
+    describe('#validateInput()', function () {
+
+        it('should return 4 when passed 4, a valid input', function () {
+            assert.equal(validateInput(4),4);
+        });
+
+        it('should return 3 when passed "3", a valid input in a string', function () {
+            assert.equal(validateInput("3"),3);
+        });
+
+        it('should throw an error when passed someString', function () {
+            assert.throws( function () { validateInput("someString");}, Error, 'Error not thrown');
+         });
+
+        it('should throw an error when passed -3', function () {
+            assert.throws(function () { validateInput(-3);}, Error, 'Error not thrown');
+        });
+
+        it('should throw an error when passed 3.5', function () {
+            assert.throws(function () { validateInput(3.5);}, Error, 'Error not thrown');
+        });
+
 
     });
 });
