@@ -36,6 +36,22 @@ describe('prime-table-fc', function () {
             assert.deepEqual(getNprimes(15), fifteenPrimes);
         });
 
+        //Negative input
+        it('should return [] when passed -5', function () {
+            assert.deepEqual(getNprimes(-5), []);
+        });
+
+        //Non number now that user input is possible
+        it('should return [] when passed someString', function () {
+            assert.deepEqual(getNprimes('someString'), []);
+        });
+
+        //Float
+        it('should return '+fifteenPrimes.slice(0,3)+' when passed 3.5', function () {
+            assert.deepEqual(getNprimes(3.5), fifteenPrimes.slice(0,3));
+        });
+
+
     });
 
     describe('#buildTableNPrimes()', function () {
@@ -71,6 +87,15 @@ describe('prime-table-fc', function () {
             assert.deepEqual(buildTableNPrimes(0), [[0]]);
         });
 
+        //Negative input
+        it('should return [[0]] when passed -10', function () {
+            assert.deepEqual(buildTableNPrimes(-10), [[0]]);
+        });
+
+        //Non number now that user input is possible
+        it('should return [[0]] when passed someString', function () {
+            assert.deepEqual(buildTableNPrimes('someString'), [[0]]);
+        });
 
     });
 });

@@ -15,6 +15,11 @@
  */
 
 function getNprimes(n){
+
+    if(isNaN(n) || n < 0 ){
+        return [];
+    }
+
     var primes = [2];
     var x = 3;
     while(primes.length < n){
@@ -77,14 +82,30 @@ function buildTableNPrimes(n){
     return table;
 }
 
+function validateInput(n){
+        if(Number.isNaN(n)) throw new Error("Invalid n: "+n+" is not a number");
+        if(n<=0) throw new Error("Invalid n: "+n+" is not greater than zero");
+        if(!Number.isInteger(n)) throw new Error("Invalid n: "+n+" is not a whole number");
+        return n;
+}
+
 /**
  * Print multiplication table of first 10 primes
  */
-function main(){
-    var primeTable = buildTableNPrimes(10);
+function main(args){
+    var n = args[2]? args[2] : 10;
+    try{
+        validateInput(n);
+    }
+    catch(e){
+        console.log(e.message);
+        return;
+    }
+
+    var primeTable = buildTableNPrimes(n);
     console.log(primeTable);
 }
 
-main();
+main(process.argv);
 
 export { getNprimes, buildTableNPrimes };
