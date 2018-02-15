@@ -6,13 +6,15 @@
   "scripts": {
     "test": "nyc --reporter=text mocha lib/test/",
     "build": "babel src -d lib",
-    "start": "node lib/index.js"
+    "start": "node lib/index.js",
+    "doc": "jsdoc src/index.js -d docs && open docs/global.html"
   },
   "author": "Cathy Correa",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "jsdoc": "^3.5.5",
     "mocha": "^5.0.1",
     "nyc": "^11.4.1"
   }

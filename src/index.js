@@ -1,9 +1,14 @@
 /**
- * Begin with initial set of primes 1 and 2
+ * <p>Begin with initial set of primes, 2
  * Start evaluating numbers at 3, incrementing by 2 to skip even numbers which are by definition not prime
  * Divide candidate by each number in the set of known primes beginning with 2 until a case with no remainder.
  * If all of the known primes leave an remainder, candidate is prime and added to the list
- * Repeat until list of primes has a length of n
+ * Repeat until list of primes has a length of n</p>
+ *
+ * <p>Time complexity: O(P*n) where P is the largest prime and n is the number of primes<br>
+ * P*n are the biggest denominators in this method.<br>
+ * Outer loop: (P-2)/2 => P<br>
+ * Inner loop: N + (N-1) + (N-2)...2, 1 => N</p>
  *
  * @param {number} n number of primes to find
  * @returns {number[]} set of n prime numbers
@@ -45,8 +50,15 @@ function initNPrimeTable(primes) {
 }
 
 /**
- * Builds an nxn multiplication table of the first n prime numbers
- * Iterates only through distinct pairs of primes rather than calculating every cell
+ * <p>Builds an nxn multiplication table of the first n prime numbers
+ * Iterates only through distinct pairs of primes rather than calculating every cell</p>
+ *
+ * <p>Time complexity: O(P*N + N^2) where P is the largest prime and N is the number of primes<br>
+ * getNPrimes: P*N <br>
+ * Outer loop: N <br>
+ * Inner loop: N+(N-1)+(N-2)...2,1 <br>
+ * P*N + N*N => P*N + N^2</p>
+ *
  * @param {number} n number of primes to build multiplication table for
  * @returns {number[][]} multiplication table of first n primes
  */

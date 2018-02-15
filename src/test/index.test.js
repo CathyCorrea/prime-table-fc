@@ -6,15 +6,18 @@ describe('prime-table-fc', function () {
 
     describe('#getNPrimes()', function () {
 
+        //Mandated case of 10
         var fifteenPrimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43,47];
         it('should return ' + fifteenPrimes + ' when passed 10', function () {
             assert.deepEqual(getNprimes(10), fifteenPrimes.slice(0,10));
         });
 
+        //First prime value is seeded
         it('should return ' + fifteenPrimes.slice(0,1) + ' when passed 1', function () {
             assert.deepEqual(getNprimes(1), fifteenPrimes.slice(0,1));
         });
 
+        //Second prime is the first to go through
         it('should return ' + fifteenPrimes.slice(0,2) + ' when passed 2', function () {
             assert.deepEqual(getNprimes(2), fifteenPrimes.slice(0,2));
         });
@@ -23,11 +26,13 @@ describe('prime-table-fc', function () {
             assert.deepEqual(getNprimes(3), fifteenPrimes.slice(0,3));
         });
 
+        //0 case is important
         it('should return [] when passed 0', function () {
             assert.deepEqual(getNprimes(0), []);
         });
 
-        it('should return ' + fifteenPrimes + ' when passed 3', function () {
+        //Case bigger than mandated 10
+        it('should return ' + fifteenPrimes + ' when passed 15', function () {
             assert.deepEqual(getNprimes(15), fifteenPrimes);
         });
 
